@@ -46,7 +46,7 @@ export ANDROID_HOME=/Users/usrname/Library/Android/sdk
 
 * Run the python script prepare.py to customize
 ```shell
-./prepare.py -c && ./prepare.py armv7 -DENABLE_NON_FREE_CODECS=YES -DENABLE_G729=YES -DENABLE_FFMPEG=YES -DENABLE_GPL_THIRD_PARTIES=YES -DENABLE_UNMAINTAINED=YES -DENABLE_VIDEO=YES -DENABLE_X264=YES -cc > prepare.log
+./prepare.py -c && ./prepare.py armv7 -DENABLE_NON_FREE_CODECS=YES -DENABLE_G729=YES -DENABLE_FFMPEG=YES -DENABLE_GPL_THIRD_PARTIES=YES -DENABLE_UNMAINTAINED=YES -DENABLE_VIDEO=YES -DENABLE_X264=YES -cc > prepare.log 2>&1
 ```
 
 
@@ -59,8 +59,8 @@ Add `"--disable-asm"` to the last line
 
 * Start to compile
 ```shell
-make -j4 > make.log
-make liblinphone-android-sdk
+make > make.log 2>&1
+make liblinphone-android-sdk > make-sdk.log 2>&1
 ```
 
 * Check if TEXTREL issue exist
